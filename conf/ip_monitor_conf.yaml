@@ -1,0 +1,11 @@
+last_ip: 10.112.40.152
+receivers:
+- active: true
+  email: xxx@qq.com
+  name: xxx
+- active: false
+  email: xxx@qq.com
+  name: xxx
+send_passwd: xxx
+send_server: smtp.163.com
+send_user: xxx
