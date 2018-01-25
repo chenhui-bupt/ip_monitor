@@ -1,11 +1,11 @@
 last_ip: 10.112.116.20
 receivers:
 - active: true
-  email: 1226946843@qq.com
-  name: 陈辉
+  email: xxx@qq.com
+  name: xxx
 - active: false
   email: xxx@qq.com
   name: xxx
-send_passwd: huhoo0228*ch
+send_passwd: xxx
 send_server: mail.bupt.edu.cn
-send_user: chnhui
+send_user: xxx
