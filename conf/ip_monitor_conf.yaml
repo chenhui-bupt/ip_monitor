@@ -1,4 +1,4 @@
-last_ip: 10.112.40.152
+last_ip: 127.0.0.1
 receivers:
 - active: true
   email: xxx@qq.com

@@ -30,7 +30,7 @@ class MailSender():
         smtp = smtplib.SMTP_SSL()
         smtp.connect(self.smtpserver, 465)
         smtp.login(self.sender, self.password)
-        self.content = base64.encodestring(self.content)
+        self.content = base64.encodestring(self.content.encode())
         msg = "From:%s\nTo:%s\nSubject:%s\nContent-Type:text/html;charset=UTF-8\nContent-Transfer-Encoding:base64\n\n%s" % (self.sender, self.receiver, self.subject, self.content)
         smtp.sendmail(self.sender, self.receiver, msg)
         smtp.close()
