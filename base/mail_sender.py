@@ -4,6 +4,7 @@ import string
 from email.mime.text import MIMEText
 import base64
 import sys
+import datetime
 
 
 class MailSender():	
@@ -30,12 +31,13 @@ class MailSender():
         smtp = smtplib.SMTP_SSL()
         smtp.connect(self.smtpserver, 465)
         smtp.login(self.sender, self.password)
-        self.content = base64.encodestring(self.content.encode())
+        self.subject = self.subject
+        self.content = base64.encodebytes(self.content)
         msg = "From:%s\nTo:%s\nSubject:%s\nContent-Type:text/html;charset=UTF-8\nContent-Transfer-Encoding:base64\n\n%s" % (self.sender, self.receiver, self.subject, self.content)
-        smtp.sendmail(self.sender, self.receiver, msg)
+        smtp.sendmail(self.sender, self.receiver, msg.encodebytes())
         smtp.close()
 
     def __del__(self):
-        print("Finish sending mails !")
+        print("Finish sending mails ! %s\n" % datetime.datetime.now())
 
     

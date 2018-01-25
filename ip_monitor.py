@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import socket
 import yaml
-from mail_sender import MailSender
+from base.mail import Mail
 
  
 def get_host_ip():
@@ -11,7 +11,6 @@ def get_host_ip():
         ip = s.getsockname()[0]
     finally:
         s.close()
- 
     return ip
 
 if __name__ == '__main__':
@@ -25,11 +24,10 @@ if __name__ == '__main__':
         user = conf['send_user']
         passwd = conf['send_passwd']
         receivers = [receiver['email'] for receiver in conf['receivers'] if receiver['active']]
-        mail = MailSender()
-        mail.setSmtpServer(server)
-        mail.setSender(user, passwd)
-        mail.setReceiver(receivers)
-        mail.setSubject("IP地址更改通知")
-        mail.setContent("Ant1009 服务器IP地址更改为: %s" % new_ip)
-        mail.sendMail()
+        email = Mail()
+        email.setSmtpServer(server)
+        email.setSender(user, passwd)
+        email.setReceivers(receivers)
+        email.setMessage(subject="IP地址更改通知", content="Ant1009 服务器IP地址更改为: %s" % new_ip)
+        email.sendMail()
 
