@@ -36,6 +36,6 @@ class MailSender():
         smtp.close()
 
     def __del__(self):
-        print "Finish sending mails !"
+        print("Finish sending mails !")
 
     

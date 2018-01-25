@@ -7,5 +7,5 @@ receivers:
   email: xxx@qq.com
   name: xxx
 send_passwd: xxx
-send_server: smtp.163.com
+send_server: mail.bupt.edu.cn
 send_user: xxx

@@ -14,8 +14,6 @@ def get_host_ip():
  
     return ip
 
-print(get_host_ip())
-
 if __name__ == '__main__':
     conf = yaml.load(open('conf/ip_monitor_conf.yaml', 'r'))
     last_ip = conf['last_ip']
